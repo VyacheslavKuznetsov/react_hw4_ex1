@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { CssBaseline, AppBar, Tabs, Tab, Box, makeStyles } from "@material-ui/core";
 import StateExample from "./components/StateExample";
+import HandleEvents from "./components/HandleEvents";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -58,7 +59,7 @@ function App() {
         <StateExample />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item two
+        <HandleEvents />
       </TabPanel>
     </div>
   );
