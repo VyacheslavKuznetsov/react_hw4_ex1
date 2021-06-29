@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Typography } from '@material-ui/core';
 
 export default class StateExample extends React.PureComponent {
     constructor(props) {
@@ -29,10 +30,10 @@ export default class StateExample extends React.PureComponent {
 
     render() {
         return (<div>
-            <button onClick={this.increment}>increment</button>
-            <button onClick={this.decrement}>decrement</button>
-            <button onClick={this.reset}>reset</button>
-            <h1>Current: {this.state.count}</h1>
+            <Button variant="contained" color="primary" onClick={this.increment}>increment</Button>
+            <Button variant="contained" color="primary" onClick={this.decrement}>decrement</Button>
+            <Button variant="contained" color="secondary" onClick={this.reset}>reset</Button>
+            <Typography variant="h1">Current: {this.state.count}</Typography>
         </div>);
     }
     
