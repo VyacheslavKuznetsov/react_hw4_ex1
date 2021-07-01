@@ -1,7 +1,17 @@
+import {
+  AppBar,
+  Box,
+  CssBaseline,
+  makeStyles,
+  Paper,
+  Tab,
+  Tabs,
+} from "@material-ui/core";
 import React, { useState } from "react";
-import { CssBaseline, AppBar, Tabs, Tab, Box, makeStyles } from "@material-ui/core";
-import StateExample from "./components/StateExample";
 import HandleEvents from "./components/HandleEvents";
+import StateExample from "./components/StateExample";
+import StateExample3 from "./components/StateExample3";
+import StateExample3Func from "./components/StateExample3Func";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -14,19 +24,15 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box p={3}>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box p={3}>{children}</Box>}
     </div>
   );
 }
 
 function a11yProps(index) {
   return {
-    'id': `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
   };
 }
 
@@ -43,15 +49,16 @@ function App() {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  }
+  };
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="static">
-        <Tabs value={value} onChange={handleChange} >
-          <Tab label="Задание №1" {...a11yProps(0) } />
-          <Tab label="Задание №2" {...a11yProps(1) } />
+        <Tabs value={value} onChange={handleChange}>
+          <Tab label="Задание №1" {...a11yProps(0)} />
+          <Tab label="Задание №2" {...a11yProps(1)} />
+          <Tab label="Задание №3" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
 
@@ -60,6 +67,14 @@ function App() {
       </TabPanel>
       <TabPanel value={value} index={1}>
         <HandleEvents />
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <Paper elevation={5}>
+          <StateExample3 />
+        </Paper>
+        <Paper elevation={5}>
+          <StateExample3Func />
+        </Paper>
       </TabPanel>
     </div>
   );
